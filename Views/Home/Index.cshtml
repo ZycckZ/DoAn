@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CnC_Store.Models.Product_Category>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="panel panel-info">
+                    <!--<div class="panel-heading text-uppercase"><a href="Detail">@item.ProName</a></div>-->
+                    <div class="panel-heading text-uppercase">
+                        @Html.ActionLink(@item.ProName, "Details", new { id = item.ProId })
+                    </div>
+                    <div class="panel-body">
+                        <img src="~/images/@item.ProImage" class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+                    <div class="panel-footer">
+                        <h4 style="color:darkblue">
+                            <strong>@item.CatName</strong>
+                        </h4>
+                        $@item.ProPrice
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
